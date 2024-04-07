@@ -55,36 +55,36 @@ flask run
 
 - `/api/books`
 
-  - <font color="blue">**GET**</font>: Get a list of all books.
-  - <font color="green">**POST**</font>: Add a new book (Admin only).
+  - **GET**: Get a list of all books.
+  - **POST**: Add a new book (Admin only).
 
 - `/api/books/<book_id>`
 
-  - <font color="blue">**GET**</font>: Get details of a specific book.
-  - <font color="orange">**PUT**</font>: Update details of a specific book (Admin only).
-  - <font color="red">**DELETE**</font>: Delete a specific book (Admin only).
+  - **GET**: Get details of a specific book.
+  - **PUT**: Update details of a specific book (Admin only).
+  - **DELETE**: Delete a specific book (Admin only).
 
 - `/api/users/register`
 
-  - <font color="green">**POST**</font>: Register a new user.
+  - **POST**: Register a new user.
 
 - `/api/users/login`
 
-  - <font color="green">**POST**</font>: Log in an existing user and receive a JWT token.
+  - **POST**: Log in an existing user and receive a JWT token.
 
 - `/api/users/logout`
 
-  - <font color="green">**POST**</font>: Log out the current user.
+  - **POST**: Log out the current user.
 
 - `/api/users/<username>`
 
-  - <font color="blue">**GET**</font>: Get details of the current user.
-  - <font color="orange">**PUT**</font>: Update details of the current user.
-  - <font color="red">**DELETE**</font>: Delete the current user account.
+  - **GET**: Get details of the current user.
+  - **PUT**: Update details of the current user.
+  - **DELETE**: Delete the current user account.
 
 - `/api/books/<book_id>/read`
 
-  - <font color="blue">**GET**</font>: Read the specified book.
+  - **GET**: Read the specified book.
 
 ## Usage
 
