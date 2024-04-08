@@ -20,7 +20,7 @@ This is a simple blog web application built using Flask, a lightweight web frame
 ## Installation
 Clone the repository:
 ```bash
-git clone https://github.com/yourusername/flask-blog.git
+git clone https://github.com/MineNique/flask-blog.git
 cd flask-blog
 ```
 Create a virtual environment (optional but recommended):
