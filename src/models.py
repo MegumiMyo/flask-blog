@@ -1,5 +1,7 @@
 from datetime import datetime
-from main import db
+from flask_sqlalchemy import SQLAlchemy
+
+db = SQLAlchemy()
 
 
 class User(db.Model):
@@ -14,7 +16,7 @@ class User(db.Model):
         return f"User('{self.username}', '{self.email}', '{self.image_file}')"
 
 
-class Psot(db.Model):
+class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
