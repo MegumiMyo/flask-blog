@@ -1,93 +1,66 @@
-# Flask API for Online Book Reading
-
-This project implements a Flask API for online book reading. Users can access books and read them via this API. It includes endpoints for retrieving book information, reading books, and managing user accounts.
+# Flask Blog
+This is a simple blog web application built using Flask, a lightweight web framework in Python.
 
 ## Features
-
-User Authentication: Users can sign up, log in, and manage their accounts.
-Book Retrieval: Retrieve information about available books.
-Reading Interface: Access books and read them online.
-User Settings: Customize reading preferences and manage account details.
+- User authentication (register, login, logout)
+- Create, edit, and delete blog posts
+- View blog posts by category or author
+- Responsive design using Bootstrap
 
 ## Technologies Used
-
-- Flask: Python web framework for building the API.
-- SQLite: Database to store book and user information.
-- JWT (JSON Web Tokens): For secure authentication and authorization.
-- SQLAlchemy: ORM (Object-Relational Mapping) for interacting with the database.
-- Swagger UI: Documentation and testing interface for API endpoints.
+- Python
+- Flask
+- SQLAlchemy (for database ORM)
+- HTML/CSS (Bootstrap for styling)
+- SQLite (or other relational database)
+- WTForms (for form validation)
+- Flask-Bcrypt (for password hashing)
+- Flask-Login (for user session management)
 
 ## Installation
-
 Clone the repository:
-
 ```bash
-git clone https://github.com/MineNique/flask-book-api.git
+git clone https://github.com/yourusername/flask-blog.git
+cd flask-blog
 ```
-
-Navigate to the project directory:
-
+Create a virtual environment (optional but recommended):
 ```bash
-cd flask-book-api
+python3 -m venv venv
+source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
 ```
-
-Install dependencies using pip:
-
+Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
-
-Set up the database:
-
+Set up environment variables (create a .env file in the root directory):
+```plaintext
+SECRET_KEY=your_secret_key
+SQLALCHEMY_DATABASE_URI=sqlite:///site.db
+```
+Initialize the database and run the application:
 ```bash
 flask db init
-flask db migrate
+flask db migrate -m "Initial migration"
 flask db upgrade
-```
-
-Start the Flask development server:
-
-```bash
 flask run
 ```
-
-## API Endpoints
-
-- `/api/books`
-
-  - **GET**: Get a list of all books.
-  - **POST**: Add a new book (Admin only).
-
-- `/api/books/<book_id>`
-
-  - **GET**: Get details of a specific book.
-  - **PUT**: Update details of a specific book (Admin only).
-  - **DELETE**: Delete a specific book (Admin only).
-
-- `/api/users/register`
-
-  - **POST**: Register a new user.
-
-- `/api/users/login`
-
-  - **POST**: Log in an existing user and receive a JWT token.
-
-- `/api/users/logout`
-
-  - **POST**: Log out the current user.
-
-- `/api/users/<username>`
-
-  - **GET**: Get details of the current user.
-  - **PUT**: Update details of the current user.
-  - **DELETE**: Delete the current user account.
-
-- `/api/books/<book_id>/read`
-
-  - **GET**: Read the specified book.
+Visit http://localhost:5000 in your web browser to view the Flask blog application.
 
 ## Usage
+- Register a new user account.
+- Log in with your registered account.
+- Create, edit, or delete blog posts.
+- Browse blog posts by category or author.
 
-1. Ensure the Flask server is running (flask run).
-2. Use tools like Postman or curl to interact with the API endpoints.
-3. Refer to Swagger UI (/apidocs) for detailed API documentation and testing.
+## Contributing
+Contributions are welcome! Please fork this repository and submit a pull request with your changes.
+
+1. Fork the repository (https://github.com/yourusername/flask-blog.git)
+2. Create your feature branch (git checkout -b feature/your-feature)
+3. Commit your changes (git commit -am 'Add your feature')
+4. Push to the branch (git push origin feature/your-feature)
+5. Open a new pull request
+
+## License
+This project is licensed under the Mozilla Public License Version 2.0 - see the LICENSE file for details.
+
