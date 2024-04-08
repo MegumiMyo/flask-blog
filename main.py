@@ -1,13 +1,15 @@
+import os
+from dotenv import load_dotenv
 from flask import Flask
 from src.models import db
+
+load_dotenv()
 
 
 def create_app():
     app = Flask(__name__)
-    app.config["SECRET_KEY"] = (
-        "2fd3f4ccbade3edb9bc2efd0bc6bfbe7a4b6ae8b0c0bc0a3928ce7275ded27ff"
-    )
-    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///site.db"
+    app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("SQLALCHEMY_DATABASE_URI")
 
     db.init_app(app)
 
