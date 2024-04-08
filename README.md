@@ -55,7 +55,7 @@ Visit http://localhost:5000 in your web browser to view the Flask blog applicati
 ## Contributing
 Contributions are welcome! Please fork this repository and submit a pull request with your changes.
 
-1. Fork the repository (https://github.com/yourusername/flask-blog.git)
+1. Fork the repository (https://github.com/MineNique/flask-blog.git)
 2. Create your feature branch (git checkout -b feature/your-feature)
 3. Commit your changes (git commit -am 'Add your feature')
 4. Push to the branch (git push origin feature/your-feature)
