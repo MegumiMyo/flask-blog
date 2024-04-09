@@ -5,11 +5,11 @@
             <img class="rounded-circle article-img" src="{{ url_for('static', filename='images/' + post.author.image_file) }}"/>
             <div class="media-body">
                 <div class="article-metadata mb-2">
-                    <a href="#" class="mr-2">{{ post.author.username }}</a>
+                    <a class="mr-2">{{ post.author.username }}</a>
                     <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</small>
                 </div>
                 <h2 class="article-title">
-                    <a href="#">{{ post.title }}</a>
+                    <a>{{ post.title }}</a>
                 </h2>
                 <p class="article-content">{{ post.content }}</p>
             </div>
