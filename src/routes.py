@@ -3,7 +3,7 @@ import secrets
 from PIL import Image
 from flask import Blueprint, render_template, redirect, url_for, flash, request
 from flask_login import login_user, current_user, logout_user, login_required
-from src.forms import RegistrationForm, LoginForm, UpdateAccountForm
+from src.forms import RegistrationForm, LoginForm, UpdateAccountForm, PostForm
 from src import db, bcrypt
 from src.models import User, Post
 
@@ -99,8 +99,27 @@ def account():
         form.username.data = current_user.username
         form.email.data = current_user.email
     image_file = url_for(
-        "static", filename="picture/" + current_user.image_file
+        "static", filename="images/" + current_user.image_file
     )  # Correct image file path
     return render_template(
         "account.html", title="Account", image_file=image_file, form=form
+    )
+
+
+@bp.route("/post/new", methods=["GET", "POST"])
+@login_required
+def new_post():
+    form = PostForm()
+    if form.validate_on_submit():
+        post = Post(
+            title=form.title.data,
+            content=form.content.data,
+            author=current_user,
+        )
+        db.session.add(post)
+        db.session.commit()
+        flash("Your post has been created!", "success")
+        return redirect(url_for("main.home"))
+    return render_template(
+        "create_post.html", title="New Post", form=form, legend="Add Post"
     )
