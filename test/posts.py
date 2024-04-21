@@ -1,15 +1,16 @@
 import os
-import time
 import json
 import random
 import string
+from dotenv import load_dotenv
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+load_dotenv()
 # Base URL of the Flask application
-base_url = "http://127.0.0.1:5000"
+base_url = f"http://{os.getenv('URI')}"
 
 username = "".join(random.choices(string.ascii_lowercase, k=8))
 email = f"{username}@example.com"
