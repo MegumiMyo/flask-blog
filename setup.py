@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 system = platform.system()
+requirements_file = "requirements.txt"
 
 
 def create_venv():
@@ -44,7 +45,6 @@ def activate_venv():
 
 
 def install_requirements():
-    requirements_file = "requirements.txt"
     if not os.path.exists(requirements_file):
         print(f"{requirements_file} not found. Skipping installation.")
         return

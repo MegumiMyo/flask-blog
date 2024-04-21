@@ -17,6 +17,7 @@ email = f"{username}@example.com"
 password = "".join(random.choices(string.ascii_letters + string.digits, k=12))
 
 file_path = f"{os.getcwd()}/data/form_data.json"
+file_update_path = f"{os.getcwd()}/data/update_post.json"
 
 
 def read_json_file(file_path):
@@ -50,7 +51,7 @@ def register(driver):
 
     driver.find_element(By.ID, "submit").click()
 
-    WebDriverWait(driver, 10).until(EC.url_changes(f"{base_url}/register"))
+    WebDriverWait(driver, 3).until(EC.url_changes(f"{base_url}/register"))
 
 
 def login(driver):
@@ -79,7 +80,26 @@ def create_post(driver):
         content_input.send_keys(post["content"])
         submit_button.click()
 
-    WebDriverWait(driver, 4).until(EC.url_changes(f"{base_url}/post/new"))
+    WebDriverWait(driver, 3).until(EC.url_changes(f"{base_url}/post/new"))
+
+
+def update_post(driver):
+    for post in convert_json_to_list(read_json_file(file_update_path)):
+        driver.get(f"{base_url}/post/{ username }")
+
+        driver.get(f"{base_url}/post/{ post['post_id'] }/update")
+
+        title_input = driver.find_element(By.NAME, "title")
+        content_input = driver.find_element(By.NAME, "content")
+        submit_button = driver.find_element(By.XPATH, "//input[@type='submit']")
+
+        title_input.send_keys(post["title"])
+        content_input.send_keys(post["content"])
+        submit_button.click()
+
+    WebDriverWait(driver, 3).until(
+        EC.url_changes(f"{base_url}/post/{post['post_id']}/update")
+    )
 
 
 def main():
@@ -99,6 +119,8 @@ Password: {password}
         print("Login successful.")
         create_post(driver)
         print("Post add successful.")
+        update_post(driver)
+        print("Post updated successful.")
 
     except Exception as e:
         print(f"An error occurred: {str(e)}")
